@@ -8,7 +8,7 @@ O projeto foi iniciado a partir de uma proposta de informatização de uma casa 
 
 ## Tecnologias utilizadas
 
-- Java 18
+- Java 17
 - Java Swing (interface gráfica)
 - JDBC (conexão com o banco)
 - MySQL
