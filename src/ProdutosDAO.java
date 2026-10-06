@@ -52,7 +52,19 @@ public class ProdutosDAO {
         }
         return lista;
     }
-
+    public boolean venderProduto(int id) {
+        String sql = "UPDATE produtos SET status = 'Vendido' WHERE id = ? AND (status IS NULL OR status <> 'Vendido')";
+        try {
+            conn = new conectaDAO().connectDB();
+            prep = conn.prepareStatement(sql);
+            prep.setInt(1, id);
+            return prep.executeUpdate() > 0;
+        } catch (Exception erro) {
+            return false;
+        } finally {
+            fecharConexao();
+        }
+    }
     private void fecharConexao() {
         try {
             if (resultset != null) resultset.close();
